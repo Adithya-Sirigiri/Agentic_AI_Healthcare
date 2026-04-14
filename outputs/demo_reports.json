@@ -1,0 +1,397 @@
+[
+  {
+    "patient_id": "DEMO_001",
+    "pipeline_status": "success",
+    "agents": {
+      "DataAgent": {
+        "agent_name": "DataAgent",
+        "status": "success",
+        "data": {
+          "record": {
+            "patient_id": "DEMO_001",
+            "age": 45,
+            "sex": "M",
+            "bmi": 22.4,
+            "spo2_mean": 97.2,
+            "spo2_min": 95.8,
+            "nasal_airflow_mean": 0.91,
+            "thoracic_effort_mean": 0.18,
+            "ahi": null,
+            "notes": "Healthy adult, no reported symptoms"
+          },
+          "derived": {
+            "spo2_drop_pct": 1.4,
+            "odi_proxy_per_hr": 0.47,
+            "flow_limitation_index": 0.016
+          }
+        },
+        "reasoning": "All fields validated successfully.",
+        "recommendations": []
+      },
+      "AnalysisAgent": {
+        "agent_name": "AnalysisAgent",
+        "status": "success",
+        "data": {
+          "ahi": 2.0,
+          "ahi_source": "estimated",
+          "severity": "None",
+          "hypoxaemia_risk": "Low",
+          "apnea_type": "Mixed / Undetermined"
+        },
+        "reasoning": "AHI: 2.0 events/hr (estimated)\nSeverity: None | Hypoxaemia: Low | Apnea: Mixed / Undetermined\nFLI: 0.016 | ODI proxy: 0.5",
+        "recommendations": []
+      },
+      "KnowledgeRetrievalAgent": {
+        "agent_name": "KnowledgeRetrievalAgent",
+        "status": "success",
+        "data": {
+          "severity_guideline": "No treatment required; lifestyle counselling for high-risk factors.",
+          "comorbidity_risks": [],
+          "cpap_efficacy_note": "",
+          "ahi_definitions": {
+            "apnea": "Complete cessation of airflow >= 10 seconds.",
+            "hypopnea": ">=30% reduction in airflow with >=3% SpO2 drop or arousal (AASM 2012).",
+            "ahi": "Number of apnea + hypopnea events per hour of sleep."
+          }
+        },
+        "reasoning": "Retrieved guideline for 'None' severity. Identified 0 comorbidity risk(s).",
+        "recommendations": []
+      },
+      "RecommendationAgent": {
+        "agent_name": "RecommendationAgent",
+        "status": "success",
+        "data": {
+          "clinical_summary": "Patient DEMO_001 (M, 45 yrs, BMI 22.4) presents with None Sleep Apnea (AHI ~ 2.0 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Low (min SpO2 = 95.8%).\n\nClinical guideline: No treatment required; lifestyle counselling for high-risk factors.",
+          "summary_method": "Heuristic (rule-based; LLM unavailable)",
+          "severity": "None",
+          "ahi": 2.0
+        },
+        "reasoning": "Summary generated using: Heuristic (rule-based; LLM unavailable)",
+        "recommendations": []
+      }
+    },
+    "summary": "Patient DEMO_001 (M, 45 yrs, BMI 22.4) presents with None Sleep Apnea (AHI ~ 2.0 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Low (min SpO2 = 95.8%).\n\nClinical guideline: No treatment required; lifestyle counselling for high-risk factors.",
+    "severity": "None",
+    "estimated_ahi": 2.0,
+    "final_recommendations": []
+  },
+  {
+    "patient_id": "DEMO_002",
+    "pipeline_status": "success",
+    "agents": {
+      "DataAgent": {
+        "agent_name": "DataAgent",
+        "status": "success",
+        "data": {
+          "record": {
+            "patient_id": "DEMO_002",
+            "age": 52,
+            "sex": "M",
+            "bmi": 29.1,
+            "spo2_mean": 95.8,
+            "spo2_min": 91.5,
+            "nasal_airflow_mean": 0.73,
+            "thoracic_effort_mean": 0.42,
+            "ahi": null,
+            "notes": "Occasional snoring, mild daytime sleepiness"
+          },
+          "derived": {
+            "spo2_drop_pct": 4.3,
+            "odi_proxy_per_hr": 1.43,
+            "flow_limitation_index": 0.113
+          }
+        },
+        "reasoning": "All fields validated successfully.",
+        "recommendations": []
+      },
+      "AnalysisAgent": {
+        "agent_name": "AnalysisAgent",
+        "status": "success",
+        "data": {
+          "ahi": 8.1,
+          "ahi_source": "estimated",
+          "severity": "Mild",
+          "hypoxaemia_risk": "Low",
+          "apnea_type": "Mixed / Undetermined"
+        },
+        "reasoning": "AHI: 8.1 events/hr (estimated)\nSeverity: Mild | Hypoxaemia: Low | Apnea: Mixed / Undetermined\nFLI: 0.113 | ODI proxy: 1.4",
+        "recommendations": []
+      },
+      "KnowledgeRetrievalAgent": {
+        "agent_name": "KnowledgeRetrievalAgent",
+        "status": "success",
+        "data": {
+          "severity_guideline": "Conservative management: weight loss, positional therapy, oral appliances.",
+          "comorbidity_risks": [],
+          "cpap_efficacy_note": "",
+          "ahi_definitions": {
+            "apnea": "Complete cessation of airflow >= 10 seconds.",
+            "hypopnea": ">=30% reduction in airflow with >=3% SpO2 drop or arousal (AASM 2012).",
+            "ahi": "Number of apnea + hypopnea events per hour of sleep."
+          }
+        },
+        "reasoning": "Retrieved guideline for 'Mild' severity. Identified 0 comorbidity risk(s).",
+        "recommendations": []
+      },
+      "RecommendationAgent": {
+        "agent_name": "RecommendationAgent",
+        "status": "success",
+        "data": {
+          "clinical_summary": "Patient DEMO_002 (M, 52 yrs, BMI 29.1) presents with Mild Sleep Apnea (AHI ~ 8.1 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Low (min SpO2 = 91.5%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+          "summary_method": "Heuristic (rule-based; LLM unavailable)",
+          "severity": "Mild",
+          "ahi": 8.1
+        },
+        "reasoning": "Summary generated using: Heuristic (rule-based; LLM unavailable)",
+        "recommendations": []
+      }
+    },
+    "summary": "Patient DEMO_002 (M, 52 yrs, BMI 29.1) presents with Mild Sleep Apnea (AHI ~ 8.1 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Low (min SpO2 = 91.5%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+    "severity": "Mild",
+    "estimated_ahi": 8.1,
+    "final_recommendations": []
+  },
+  {
+    "patient_id": "DEMO_003",
+    "pipeline_status": "success",
+    "agents": {
+      "DataAgent": {
+        "agent_name": "DataAgent",
+        "status": "success",
+        "data": {
+          "record": {
+            "patient_id": "DEMO_003",
+            "age": 58,
+            "sex": "F",
+            "bmi": 33.7,
+            "spo2_mean": 93.5,
+            "spo2_min": 87.2,
+            "nasal_airflow_mean": 0.54,
+            "thoracic_effort_mean": 0.63,
+            "ahi": null,
+            "notes": "Loud snoring, witnessed apneas, hypertension"
+          },
+          "derived": {
+            "spo2_drop_pct": 6.3,
+            "odi_proxy_per_hr": 2.1,
+            "flow_limitation_index": 0.29
+          }
+        },
+        "reasoning": "All fields validated successfully.",
+        "recommendations": []
+      },
+      "AnalysisAgent": {
+        "agent_name": "AnalysisAgent",
+        "status": "success",
+        "data": {
+          "ahi": 14.9,
+          "ahi_source": "estimated",
+          "severity": "Mild",
+          "hypoxaemia_risk": "Moderate",
+          "apnea_type": "Mixed / Undetermined"
+        },
+        "reasoning": "AHI: 14.9 events/hr (estimated)\nSeverity: Mild | Hypoxaemia: Moderate | Apnea: Mixed / Undetermined\nFLI: 0.290 | ODI proxy: 2.1",
+        "recommendations": []
+      },
+      "KnowledgeRetrievalAgent": {
+        "agent_name": "KnowledgeRetrievalAgent",
+        "status": "success",
+        "data": {
+          "severity_guideline": "Conservative management: weight loss, positional therapy, oral appliances.",
+          "comorbidity_risks": [],
+          "cpap_efficacy_note": "",
+          "ahi_definitions": {
+            "apnea": "Complete cessation of airflow >= 10 seconds.",
+            "hypopnea": ">=30% reduction in airflow with >=3% SpO2 drop or arousal (AASM 2012).",
+            "ahi": "Number of apnea + hypopnea events per hour of sleep."
+          }
+        },
+        "reasoning": "Retrieved guideline for 'Mild' severity. Identified 0 comorbidity risk(s).",
+        "recommendations": []
+      },
+      "RecommendationAgent": {
+        "agent_name": "RecommendationAgent",
+        "status": "success",
+        "data": {
+          "clinical_summary": "Patient DEMO_003 (F, 58 yrs, BMI 33.7) presents with Mild Sleep Apnea (AHI ~ 14.9 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Moderate (min SpO2 = 87.2%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+          "summary_method": "Heuristic (rule-based; LLM unavailable)",
+          "severity": "Mild",
+          "ahi": 14.9
+        },
+        "reasoning": "Summary generated using: Heuristic (rule-based; LLM unavailable)",
+        "recommendations": []
+      }
+    },
+    "summary": "Patient DEMO_003 (F, 58 yrs, BMI 33.7) presents with Mild Sleep Apnea (AHI ~ 14.9 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Moderate (min SpO2 = 87.2%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+    "severity": "Mild",
+    "estimated_ahi": 14.9,
+    "final_recommendations": []
+  },
+  {
+    "patient_id": "DEMO_004",
+    "pipeline_status": "success",
+    "agents": {
+      "DataAgent": {
+        "agent_name": "DataAgent",
+        "status": "success",
+        "data": {
+          "record": {
+            "patient_id": "DEMO_004",
+            "age": 61,
+            "sex": "M",
+            "bmi": 38.9,
+            "spo2_mean": 90.1,
+            "spo2_min": 78.5,
+            "nasal_airflow_mean": 0.32,
+            "thoracic_effort_mean": 0.81,
+            "ahi": null,
+            "notes": "Severe obesity, type-2 diabetes, extreme sleepiness"
+          },
+          "derived": {
+            "spo2_drop_pct": 11.6,
+            "odi_proxy_per_hr": 3.87,
+            "flow_limitation_index": 0.551
+          }
+        },
+        "reasoning": "All fields validated successfully.",
+        "recommendations": []
+      },
+      "AnalysisAgent": {
+        "agent_name": "AnalysisAgent",
+        "status": "success",
+        "data": {
+          "ahi": 27.3,
+          "ahi_source": "estimated",
+          "severity": "Moderate",
+          "hypoxaemia_risk": "High",
+          "apnea_type": "Obstructive (OSA)"
+        },
+        "reasoning": "AHI: 27.3 events/hr (estimated)\nSeverity: Moderate | Hypoxaemia: High | Apnea: Obstructive (OSA)\nFLI: 0.551 | ODI proxy: 3.9",
+        "recommendations": [
+          "Urgent referral to sleep specialist recommended.",
+          "Supplemental oxygen assessment warranted.",
+          "CPAP therapy evaluation advised."
+        ]
+      },
+      "KnowledgeRetrievalAgent": {
+        "agent_name": "KnowledgeRetrievalAgent",
+        "status": "success",
+        "data": {
+          "severity_guideline": "CPAP therapy first line; oral appliance for CPAP-intolerant patients.",
+          "comorbidity_risks": [
+            "OSA doubles hypertension risk; CPAP reduces nocturnal BP by 2-3 mmHg.",
+            "Moderate-severe OSA associated with 2x increased AF risk."
+          ],
+          "cpap_efficacy_note": "CPAP reduces AHI by >50% in >80% of patients (Giles et al. 2006).",
+          "ahi_definitions": {
+            "apnea": "Complete cessation of airflow >= 10 seconds.",
+            "hypopnea": ">=30% reduction in airflow with >=3% SpO2 drop or arousal (AASM 2012).",
+            "ahi": "Number of apnea + hypopnea events per hour of sleep."
+          }
+        },
+        "reasoning": "Retrieved guideline for 'Moderate' severity. Identified 2 comorbidity risk(s).",
+        "recommendations": []
+      },
+      "RecommendationAgent": {
+        "agent_name": "RecommendationAgent",
+        "status": "success",
+        "data": {
+          "clinical_summary": "Patient DEMO_004 (M, 61 yrs, BMI 38.9) presents with Moderate Sleep Apnea (AHI ~ 27.3 events/hr, estimated).\n\nApnea type: Obstructive (OSA).\nNocturnal hypoxaemia risk: High (min SpO2 = 78.5%).\n\nClinical guideline: CPAP therapy first line; oral appliance for CPAP-intolerant patients.\n\nEvidence note: CPAP reduces AHI by >50% in >80% of patients (Giles et al. 2006).\n\nComorbidity risks:\n  - OSA doubles hypertension risk; CPAP reduces nocturnal BP by 2-3 mmHg.\n  - Moderate-severe OSA associated with 2x increased AF risk.",
+          "summary_method": "Heuristic (rule-based; LLM unavailable)",
+          "severity": "Moderate",
+          "ahi": 27.3
+        },
+        "reasoning": "Summary generated using: Heuristic (rule-based; LLM unavailable)",
+        "recommendations": [
+          "Urgent referral to sleep specialist recommended.",
+          "Supplemental oxygen assessment warranted.",
+          "CPAP therapy evaluation advised."
+        ]
+      }
+    },
+    "summary": "Patient DEMO_004 (M, 61 yrs, BMI 38.9) presents with Moderate Sleep Apnea (AHI ~ 27.3 events/hr, estimated).\n\nApnea type: Obstructive (OSA).\nNocturnal hypoxaemia risk: High (min SpO2 = 78.5%).\n\nClinical guideline: CPAP therapy first line; oral appliance for CPAP-intolerant patients.\n\nEvidence note: CPAP reduces AHI by >50% in >80% of patients (Giles et al. 2006).\n\nComorbidity risks:\n  - OSA doubles hypertension risk; CPAP reduces nocturnal BP by 2-3 mmHg.\n  - Moderate-severe OSA associated with 2x increased AF risk.",
+    "severity": "Moderate",
+    "estimated_ahi": 27.3,
+    "final_recommendations": [
+      "Urgent referral to sleep specialist recommended.",
+      "Supplemental oxygen assessment warranted.",
+      "CPAP therapy evaluation advised."
+    ]
+  },
+  {
+    "patient_id": "DEMO_005",
+    "pipeline_status": "success",
+    "agents": {
+      "DataAgent": {
+        "agent_name": "DataAgent",
+        "status": "success",
+        "data": {
+          "record": {
+            "patient_id": "DEMO_005",
+            "age": 48,
+            "sex": "F",
+            "bmi": 26.8,
+            "spo2_mean": 94.2,
+            "spo2_min": 88.1,
+            "nasal_airflow_mean": 0.62,
+            "thoracic_effort_mean": 0.22,
+            "ahi": null,
+            "notes": "Low FLI, possible central component"
+          },
+          "derived": {
+            "spo2_drop_pct": 6.1,
+            "odi_proxy_per_hr": 2.03,
+            "flow_limitation_index": 0.084
+          }
+        },
+        "reasoning": "All fields validated successfully.",
+        "recommendations": []
+      },
+      "AnalysisAgent": {
+        "agent_name": "AnalysisAgent",
+        "status": "success",
+        "data": {
+          "ahi": 9.1,
+          "ahi_source": "estimated",
+          "severity": "Mild",
+          "hypoxaemia_risk": "Moderate",
+          "apnea_type": "Mixed / Undetermined"
+        },
+        "reasoning": "AHI: 9.1 events/hr (estimated)\nSeverity: Mild | Hypoxaemia: Moderate | Apnea: Mixed / Undetermined\nFLI: 0.084 | ODI proxy: 2.0",
+        "recommendations": []
+      },
+      "KnowledgeRetrievalAgent": {
+        "agent_name": "KnowledgeRetrievalAgent",
+        "status": "success",
+        "data": {
+          "severity_guideline": "Conservative management: weight loss, positional therapy, oral appliances.",
+          "comorbidity_risks": [],
+          "cpap_efficacy_note": "",
+          "ahi_definitions": {
+            "apnea": "Complete cessation of airflow >= 10 seconds.",
+            "hypopnea": ">=30% reduction in airflow with >=3% SpO2 drop or arousal (AASM 2012).",
+            "ahi": "Number of apnea + hypopnea events per hour of sleep."
+          }
+        },
+        "reasoning": "Retrieved guideline for 'Mild' severity. Identified 0 comorbidity risk(s).",
+        "recommendations": []
+      },
+      "RecommendationAgent": {
+        "agent_name": "RecommendationAgent",
+        "status": "success",
+        "data": {
+          "clinical_summary": "Patient DEMO_005 (F, 48 yrs, BMI 26.8) presents with Mild Sleep Apnea (AHI ~ 9.1 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Moderate (min SpO2 = 88.1%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+          "summary_method": "Heuristic (rule-based; LLM unavailable)",
+          "severity": "Mild",
+          "ahi": 9.1
+        },
+        "reasoning": "Summary generated using: Heuristic (rule-based; LLM unavailable)",
+        "recommendations": []
+      }
+    },
+    "summary": "Patient DEMO_005 (F, 48 yrs, BMI 26.8) presents with Mild Sleep Apnea (AHI ~ 9.1 events/hr, estimated).\n\nApnea type: Mixed / Undetermined.\nNocturnal hypoxaemia risk: Moderate (min SpO2 = 88.1%).\n\nClinical guideline: Conservative management: weight loss, positional therapy, oral appliances.",
+    "severity": "Mild",
+    "estimated_ahi": 9.1,
+    "final_recommendations": []
+  }
+]
