@@ -536,11 +536,11 @@ accuracy — as demonstrated in the author's prior Sleep Apnea Detection project
 
 ---
 
-## Author
+# Agentic AI for Healthcare
 
-**Sirigiri Venkateswara Adithya**
-B.Tech CSE (Data Science & Analytics) | IIIT Sonepat | CPI 9.43
-GitHub: [github.com/Adithya-Sirigiri](https://github.com/Adithya-Sirigiri)
-Email: adithyasirigiri26@gmail.com
+> **Sirigiri Venkateswara Adithya**  
+> B.Tech CSE (Data Science & Analytics) | IIIT Sonepat | CPI 9.43  
+> GitHub: [github.com/Adithya-Sirigiri](https://github.com/Adithya-Sirigiri)  
+> Email: adithyasirigiri26@gmail.com
 
-*Submitted to: Dr. K Naveen Kumar |
+> *Submitted to: Dr. K Naveen Kumar*
