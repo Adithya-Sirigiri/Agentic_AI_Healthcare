@@ -113,31 +113,24 @@ horizons.
 The system follows a sequential multi-agent pipeline coordinated by a central
 `OrchestratorAgent`:
 
-+--------------------------------------------------------------+
-| ORCHESTRATOR AGENT |
-| Manages pipeline | Handles errors | Assembles report |
-+--------------------------------------------------------------+
-    |        |        |        |
-    |        |        |        |
-    v        v        v        v
-+----------+ +----------+ +-----------+ +-----------+
-| Data | | Analysis | | Knowledge | | Recommend |
-| Agent | | Agent | | Agent | | Agent |
-+----------+ +----------+ +-----------+ +-----------+
- |            |            |             |
- |            |            |             |
- v            v            v             v
-Validate Estimate Retrieve Synthesise
-& Enrich AHI & AASM Clinical
-Data Classify Guidelines Summary
+```mermaid
+flowchart TD
+    OA["🔧 ORCHESTRATOR AGENT\nManages pipeline | Handles errors | Assembles report"]
 
-**Data flow between agents:**
-Patient Dict
-→ [DataAgent] → PatientRecord + SpO2 drop + ODI proxy + FLI
-→ [AnalysisAgent] → AHI + Severity + Hypoxaemia risk + Apnea type
-→ [KnowledgeAgent] → AASM guideline + Comorbidity risks + CPAP note
-→ [RecommendationAgent] → Clinical summary + Management plan
-→ Final JSON Report
+    OA --> DA["DATA AGENT\nValidate & Enrich"]
+    OA --> AA["ANALYSIS AGENT\nEstimate AHI & AASM"]
+    OA --> KA["KNOWLEDGE AGENT\nRetrieve Clinical Data"]
+    OA --> RA["RECOMMENDATION AGENT\nSynthesise & Classify Guidelines Summary"]
+```
+
+```mermaid
+flowchart LR
+    PD["Patient Dict"] --> DA["DataAgent"]
+    DA --> |"PatientRecord + SpO2 drop + ODI proxy + FLI"| AA["AnalysisAgent"]
+    AA --> |"AHI + Severity + Hypoxaemia risk + Apnea type"| KA["KnowledgeAgent"]
+    KA --> |"AASM guideline + Comorbidity risks + CPAP note"| RA["RecommendationAgent"]
+    RA --> |"Clinical summary + Management plan"| FR["Final JSON Report"]
+```
 
 ---
 
