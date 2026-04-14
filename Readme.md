@@ -239,27 +239,23 @@ ensuring the pipeline never crashes due to an external dependency.
 
 ## 6. Project Structure
 
+```
 agentic_healthcare/
-│
-├── main.ipynb                        
-├── README.md                         
-├── requirements.txt                  
-│
+├── main.ipynb
+├── README.md
+├── requirements.txt
 ├── src/
-│   ├── agents.py                     
-│   ├── dataset.py                    
-│   └── evaluation.py                 
-│
+│   ├── agents.py
+│   ├── dataset.py
+│   └── evaluation.py
 ├── data/
-│   └── sleep_apnea_dataset.csv       
-│
+│   └── sleep_apnea_dataset.csv
 ├── outputs/
-│   ├── demo_reports.json             
-│   ├── evaluation_metrics.json       
-│   └── results_overview.png          
-│
+│   ├── demo_reports.json
+│   ├── evaluation_metrics.json
+│   └── results_overview.png
 └── docs/
-└── literature_review.md          
+```       
 
 ---
 
@@ -310,8 +306,9 @@ every time.
 pip install -r requirements.txt
 ```
 
-### requirements.txt contents
+### Requirements
 
+```txt
 pandas>=2.0.0
 numpy>=1.24.0
 scikit-learn>=1.3.0
@@ -322,6 +319,7 @@ langchain-core>=0.1.0
 langchain-openai>=0.0.5
 openai>=1.0.0
 python-dotenv>=1.0.0
+```
 
 ### Optional — LLM-enhanced summaries
 
@@ -373,26 +371,24 @@ jupyter notebook main.ipynb
 
 **Input:**
 
-patient_id           : DEMO_004
-age / sex / bmi      : 61 / M / 38.9
-spo2_mean            : 90.1%
-spo2_min             : 78.5%
-nasal_airflow_mean   : 0.32
-thoracic_effort_mean : 0.81
-notes                : Severe obesity, type-2 diabetes, extreme sleepiness
+| Field | Value |
+|---|---|
+| patient_id | DEMO_004 |
+| age / sex / bmi | 61 / M / 38.9 |
+| spo2_mean | 90.1% |
+| spo2_min | 78.5% |
+| nasal_airflow_mean | 0.32 |
+| thoracic_effort_mean | 0.81 |
+| notes | Severe obesity, type-2 diabetes, extreme sleepiness |
 
 **Pipeline output:**
 
-============================================================
-Orchestrator: Processing DEMO_004
-[1/4] DataAgent        -> Validating & enriching...
-Status: success
-[2/4] AnalysisAgent    -> Classifying severity...
-Status: success | Severity: Moderate
-[3/4] KnowledgeAgent   -> Fetching guidelines...
-Status: success
-[4/4] RecommendationAgent -> Synthesising report...
-Status: success
+| Step | Agent | Task | Status |
+|---|---|---|---|
+| 1/4 | `DataAgent` | Validating & enriching | ✅ success |
+| 2/4 | `AnalysisAgent` | Classifying severity | ✅ success — Severity: Moderate |
+| 3/4 | `KnowledgeAgent` | Fetching guidelines | ✅ success |
+| 4/4 | `RecommendationAgent` | Synthesising report | ✅ success |
 
 PATIENT REPORT — DEMO_004
 
