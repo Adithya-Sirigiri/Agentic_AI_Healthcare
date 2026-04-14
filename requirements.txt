@@ -1,0 +1,13 @@
+# Core
+pandas
+numpy
+matplotlib
+scikit-learn
+
+# LangChain (optional — only needed if OPENAI_API_KEY is set)
+langchain
+langchain-community
+langchain-core
+langchain-openai
+openai
+python-dotenv
